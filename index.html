@@ -1,27 +1,131 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
-    <title>&lt;model-viewer&gt; template</title>
+    <title>Modelo 3D - Pug</title>
     <meta charset="utf-8">
-    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="description" content="Visualizador interactivo de modelo 3D de un Pug">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #0d1117;
+        color: #e6edf3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 40px 20px;
+        line-height: 1.7;
+      }
+
+      header {
+        text-align: center;
+        max-width: 700px;
+        margin-bottom: 25px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+
+      .subtitle {
+        color: #8b949e;
+        font-size: 1rem;
+      }
+
+      .viewer-container {
+        width: 100%;
+        max-width: 750px;
+        height: 480px;
+        margin-bottom: 40px;
+      }
+
+      model-viewer {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+      }
+
+      .content-section {
+        max-width: 680px;
+        text-align: left;
+      }
+
+      .content-section p {
+        font-size: 1.05rem;
+        color: #c9d1d9;
+        margin-bottom: 20px;
+      }
+
+      .fun-fact {
+        color: #a5d6ff;
+      }
+
+      .fun-fact span {
+        font-weight: 600;
+        color: #79c0ff;
+      }
+
+      .nav-link {
+        margin-top: 35px;
+        display: inline-block;
+        color: #58a6ff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: opacity 0.2s ease;
+      }
+
+      .nav-link:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <!-- <model-viewer> HTML element -->
-    <model-viewer src="cute_pug.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay>
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-    </model-viewer>  
+
+    <header>
+      <h1>Exploración 3D: El Pug</h1>
+      <p class="subtitle">Interacción digital y reseña de la raza</p>
+    </header>
+
+    <div class="viewer-container">
+      <model-viewer src="cute_pug.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay>
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">
+            View in your space
+        </button>
+        <div id="ar-prompt">
+            <img src="ar_hand_prompt.png">
+        </div>
+      </model-viewer>  
+    </div>
+
+    <section class="content-section">
+      <p>
+        El Pug es una de las razas caninas más antiguas y distinguidas del mundo, originaria de China hace más de dos mil años. En la antigüedad, estos pequeños acompañantes eran considerados tesoros reales por los emperadores chinos, quienes les brindaban cuidados de verdadero lujo e incluso guardias de protección exclusiva. Más tarde, en el siglo XVI, su encanto conquistó Europa a través de los comerciantes holandeses, convirtiéndose rápidamente en la mascota predilecta de la nobleza y de múltiples cortes reales europeas.
+      </p>
+
+      <p class="fun-fact">
+        <span>¿Sabías que...?</span> En la antigua China, las arrugas de la frente de los Pugs eran profundamente valoradas por los criadores si lograban formar un patrón similar al carácter escrito que significa "Príncipe" (王). Además, un grupo de Pugs no se denomina jauría como a la mayoría de los perros, sino que se les conoce oficialmente en inglés como una "grumble" (refunfuño), en un simpático homenaje a los peculiares sonidos y resoplidos rítmicos que emiten al respirar.
+      </p>
+    </section>
+
+    <a href="../index.html" class="nav-link">← Volver a la página principal</a>
+
     <script src="script.js"></script>
-    <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.4.0/model-viewer.min.js"></script>
   </body>
 </html>
